@@ -3,15 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/nav_text_view"
-        android:title="TextView Example"
-        android:icon="@drawable/ic_menu_textview" />
-    <item
-        android:id="@+id/nav_edit_text_view"
-        android:icon="@android:drawable/edit_text"
-        android:title="EditTextView Example" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_text_view"
+            android:icon="@drawable/ic_menu_textview"
+            android:title="TextView Example" />
+        <item
+            android:id="@+id/nav_edit_text_view"
+            android:icon="@android:drawable/edit_text"
+            android:title="EditTextView Example" />
+        <item
+            android:id="@+id/autoCompleteTextView"
+            android:title="AutoCompleteText Example" />
+        <item
+            android:id="@+id/nav_check_box_radio_button"
+            android:title="CheckBoxRadioButton Example" />
+        <item
+            android:id="@+id/nav_student"
+            android:title="Student Example" />
 
 
-
+    </group>
 </menu>

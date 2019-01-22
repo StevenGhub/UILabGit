@@ -2,7 +2,6 @@ package chh24.tcss450.uw.edu.uilab;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -15,8 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import chh24.tcss450.uw.edu.uilab.blog.DummyContent;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        StudentFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if(savedInstanceState == null) {
+        /*if(savedInstanceState == null) {
             if (findViewById(R.id.drawer_layout) != null) {
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.drawer_layout, new HomeFragment())
                         .commit();
             }
-        }
+        }*/
     }
 
     @Override
@@ -94,7 +94,13 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_text_view) {
             loadFragment(new TextViewFragment());
         } else if (id == R.id.nav_edit_text_view) {
-            loadFragment(new TextViewFragment());
+            loadFragment(new EditTextFragment());
+        } else if (id == R.id.autoCompleteTextView) {
+            loadFragment(new AutoCompleteTextFragment());
+        } else if (id == R.id.nav_check_box_radio_button) {
+            loadFragment(new CheckBoxRadioButtonFragment());
+        } else if (id == R.id.nav_student) {
+            loadFragment(new StudentFragment());
         }
 
 
@@ -112,7 +118,19 @@ public class MainActivity extends AppCompatActivity
         transaction.commit();
     }
 
-    //Test push for github
+    @Override
+    public void onListFragmentInteraction(DummyContent.Student item) {
 
+        ViewStudentFragment viewStudent = new ViewStudentFragment();
+        Bundle arg = new Bundle();
+        arg.putSerializable(getString(R.string.studentViewID), item.id);
+        arg.putSerializable(getString(R.string.studentViewName), item.name);
+        arg.putSerializable(getString(R.string.studentViewDetail), item.details);
+        viewStudent.setArguments(arg);
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction().replace(R.id.fragmentContainer, viewStudent);
 
+        transaction.commit();
+
+    }
 }

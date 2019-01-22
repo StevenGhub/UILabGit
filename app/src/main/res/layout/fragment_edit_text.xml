@@ -21,13 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edit_view_hint"
-        tools:maxLines="5" />
+        android:inputType="text"
+        tools:lines="5" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/edit_view_hint"
         android:inputType="textPassword"
-        tools:maxLines="10" />
+        tools:ems="10" />
 </LinearLayout>
