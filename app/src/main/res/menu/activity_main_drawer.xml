@@ -10,18 +10,20 @@
             android:title="TextView Example" />
         <item
             android:id="@+id/nav_edit_text_view"
-            android:icon="@android:drawable/edit_text"
+            android:icon="@android:drawable/ic_menu_edit"
             android:title="EditTextView Example" />
         <item
             android:id="@+id/autoCompleteTextView"
+            android:icon="@android:drawable/ic_input_add"
             android:title="AutoCompleteText Example" />
         <item
             android:id="@+id/nav_check_box_radio_button"
+            android:icon="@android:drawable/checkbox_off_background"
             android:title="CheckBoxRadioButton Example" />
         <item
             android:id="@+id/nav_student"
+            android:icon="@android:drawable/ic_menu_agenda"
             android:title="Student Example" />
-
 
     </group>
 </menu>

@@ -33,6 +33,7 @@
     <string name="studentViewID">SID</string>
     <string name="studentViewName">SName</string>
     <string name="studentViewDetail">SDetail</string>
+    <string name="submit">Submit</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

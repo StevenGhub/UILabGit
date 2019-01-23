@@ -12,9 +12,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:background="@drawable/customborder"
+        android:background="@drawable/customborder"
         android:gravity="center_horizontal"
-        tools:orientation="horizontal">
+        android:orientation="horizontal">
 
 
         <RadioButton
@@ -38,27 +38,35 @@
         android:orientation="vertical">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkMeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/toppingMeat" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkChe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/toppingCheese" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkVeg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/toppingVegitables" />
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/checkSauce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/toppingSauce" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textAlignment="center"
+        android:layout_gravity="right"/>
 </LinearLayout>

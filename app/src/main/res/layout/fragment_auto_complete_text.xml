@@ -18,5 +18,5 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:completionThreshold="1" />
+        android:completionThreshold="1" />
 </android.support.constraint.ConstraintLayout>

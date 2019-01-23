@@ -1,8 +1,10 @@
 package chh24.tcss450.uw.edu.uilab;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,12 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import chh24.tcss450.uw.edu.uilab.blog.DummyContent;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        StudentFragment.OnListFragmentInteractionListener {
+        StudentFragment.OnListFragmentInteractionListener,
+        CheckBoxRadioButtonFragment.OnCheckFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,13 +47,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*if(savedInstanceState == null) {
+        if(savedInstanceState == null) {
             if (findViewById(R.id.drawer_layout) != null) {
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.drawer_layout, new HomeFragment())
+                        .add(R.id.fragmentContainer, new HomeFragment())
                         .commit();
             }
-        }*/
+        }
     }
 
     @Override
@@ -110,6 +113,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void loadFragment(Fragment frag) {
+        FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack();
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, frag)
@@ -131,6 +136,14 @@ public class MainActivity extends AppCompatActivity
                 .beginTransaction().replace(R.id.fragmentContainer, viewStudent);
 
         transaction.commit();
+    }
 
+    @Override
+    public void onCheckFragmentInteraction(String message) {
+        Context context = getApplicationContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 }
